@@ -43,10 +43,10 @@
 <div class="intrude-less">
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
-			<img src="" class="js-avatar">
+			<img src="http://pbuw2vh6j.bkt.clouddn.com/QQ%E5%9B%BE%E7%89%8720180714204439.jpg" class="js-avatar">
 		</a>
 		<hgroup>
-		  <h1 class="header-author"><a href="/">John Doe</a></h1>
+		  <h1 class="header-author"><a href="/">fishsif</a></h1>
 		</hgroup>
 		
 
@@ -101,10 +101,10 @@
 	<div class="intrude-less">
 		<header id="header" class="inner">
 			<div class="profilepic">
-				<img src="" class="js-avatar">
+				<img src="http://pbuw2vh6j.bkt.clouddn.com/QQ%E5%9B%BE%E7%89%8720180714204439.jpg" class="js-avatar">
 			</div>
 			<hgroup>
-			  <h1 class="header-author js-header-author">John Doe</h1>
+			  <h1 class="header-author js-header-author">fishsif</h1>
 			</hgroup>
 			
 			
@@ -172,15 +172,51 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+        <p>前几天工作不饱和，于是研究了很早之前就想搭建的hexo + github pages，发现它既有着高逼格，操作还非常简单灵活，对于我这种服务端小白来说是非常完美了。刚刚把本地的页面部署成功，有点小激动，第一篇文章就记录一下搭建过程（特别是遇到的一些坑）吧~</p>
+<h2 id="本地环境：安装node-js和git"><a href="#本地环境：安装node-js和git" class="headerlink" title="本地环境：安装node.js和git"></a>本地环境：安装node.js和git</h2><p>因为hexo是一个基于node.js、用git进行内容发布的博客框架，所以首先需要在本地环境安装node.js和git。大部分开发人员的电脑里应该都已经安装了这两个工具，在此就不做赘述，<a href="https://hexo.io/zh-cn/docs/index.html" target="_blank" rel="noopener">hexo官方文档</a>也进行了详细的说明。</p>
+<h2 id="github部分"><a href="#github部分" class="headerlink" title="github部分"></a>github部分</h2><p>首先，<a href="https://pages.github.com/" target="_blank" rel="noopener">GitHub Pages</a>是什么？</p>
+<blockquote>
+<p>GitHub Pages 是一个静态网站托管服务，被设计来管理你的来自一个GitHub 库的个人的、组织的、或者项目的页面。</p>
+</blockquote>
+<p>我们可以在GitHub Pages上搭建个人网站，免费+稳定，用它来搭一个博客再合适不过了。</p>
+<p>在这一步，我们需要注册一个github账号，完成注册后，建立仓库，添加SSH key将本地git项目与远程的github建立联系。</p>
+<h3 id="建立仓库"><a href="#建立仓库" class="headerlink" title="建立仓库"></a>建立仓库</h3><p>在github上新建一个与用户名对应的仓库，比如我的用户名为fishsif，仓库命名就是【fishsif.github.io】。</p>
+<p><img src="http://pbuw2vh6j.bkt.clouddn.com/%E6%96%B0%E5%BB%BA%E4%BB%93%E5%BA%93.png" width="350"></p>
+<h3 id="添加SSH-key"><a href="#添加SSH-key" class="headerlink" title="添加SSH key"></a>添加SSH key</h3><p>添加ssh key的目的就是在我们以后使用时，不用每次手动输入密码，把本地的公钥拷贝到github里，以后就可以通过公钥进行登陆了。</p>
+<p>首先设置github注册的用户名和邮箱<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git config --global user.name <span class="string">"用户名"</span> </span><br><span class="line">$ git config --global user.email <span class="string">"邮箱@youremail.com"</span></span><br></pre></td></tr></table></figure></p>
+<p>检查电脑上现有的SSH key<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> ~/.ssh</span><br></pre></td></tr></table></figure></p>
+<p>如果不存在直接进行下面的步骤，如果存在，可以备份再删除.ssh文件夹里的所有文件。</p>
+<p>生成新的SSH Key<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh-keygen -t rsa -C <span class="string">"邮箱@youremail.com"</span></span><br></pre></td></tr></table></figure></p>
+<p>我是一路回车~</p>
+<p>SSH key设置成功后，将id_rsa.pub文件的内容输出<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> ~/.ssh</span><br><span class="line">$ cat id_rsa.pub</span><br></pre></td></tr></table></figure></p>
+<p>把cat出来的内容拷贝到github上，Title随便起：</p>
+<p><img src="http://pbuw2vh6j.bkt.clouddn.com/setting" width="250"><br><img src="http://pbuw2vh6j.bkt.clouddn.com/sshkey" width="250"></p>
+<p>然后测试一下，输入下面的命令，看看设置是否成功，<a href="mailto:git@github.com" target="_blank" rel="noopener">git@github.com</a>不要修改<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh -T git@github.com</span><br></pre></td></tr></table></figure></p>
+<p>如果出现 Are you sure you want to continue connecting (yes/no)? 输入yes就好。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ Hi fishsif! You<span class="string">'ve successfully authenticated, but GitHub does not provide shell access.</span></span><br></pre></td></tr></table></figure></p>
+<p>这样，就成功连接github了~</p>
+<p><strong>说下这里遇到的坑，<code>ssh -T git@github.com</code>之前一直不成功，原因是网络问题，在公司内网或者是有防火墙之类的限制，回家再试一下，就好了。</strong></p>
+<h2 id="Hexo"><a href="#Hexo" class="headerlink" title="Hexo"></a>Hexo</h2><p>现在就可以用npm安装Hexo了~</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
+<p>安装完Hexo后，一般可以新建一个网站文件夹，开始一系列配置和写作。我们换电脑时，可以选择拷贝这个文件夹（当然太不方便）或者把这个文件夹放到github上托管。但是，如果每一个GitHub Pages都需要创建一个额外的仓库来存放Hexo网站文件，还是挺麻烦的。</p>
+<p>我参考了利用分支的方法，每个想建立GitHub Pages的仓库，起码有两个分支，一个用来存放Hexo网站的文件，一个用来发布网站。非常方便，不需要维护两个仓库，具体可以参考博文 <a href="https://crazymilk.github.io/2015/12/28/GitHub-Pages-Hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/#more" target="_blank" rel="noopener">https://crazymilk.github.io/2015/12/28/GitHub-Pages-Hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/#more</a>  </p>
+<p>下面是我按照该方法的具体操作：</p>
+<ol>
+<li>创建仓库，fishsif.github.io；   </li>
+<li>使用git clone拷贝仓库至本地（此时只有master分支）；  </li>
+<li>新建本地分支hexo并git push推送至远端，在github上设置hexo为默认分支（因为我们只需要手动管理这个分支上的Hexo网站文件）；  </li>
+<li>在本地fishsif.github.io文件夹下，切换到hexo分支，<strong>先将.git文件备份（重要），再清空文件夹（因为hexo init要求当前文件夹为空）</strong>，通过Git bash依次执行hexo init、npm install 和 npm install hexo-deployer-git –save，然后将.git文件粘贴回来；  </li>
+<li>修改_config.yml中的deploy参数，branch参数应为master；<br><img src="http://pbuw2vh6j.bkt.clouddn.com/deploy%E9%85%8D%E7%BD%AE" width="400">  </li>
+<li>依次执行git add .、git commit -m “…”、git push origin hexo提交网站相关的文件；<br>执行hexo g、hexo d生成网站并部署到GitHub上。</li>
+</ol>
+<p><strong>hexo d部署过程中遇到的坑：</strong>  </p>
+<ol>
+<li>和前面<code>ssh -T git@github.com</code>不成功的原因一样，关闭防火墙或者换个网络就可以了。  </li>
+<li>报错<code>fatal: HttpRequestException encountered.</code>这个只需要将_config.yml中的deploy配置中的<code>repo</code>路径由https格<code>https://github.com/fishsif/fishsif.github.io.git</code>改为ssh格式<a href="mailto:`git@github.com" target="_blank" rel="noopener">`git@github.com</a>:fishsif/fishsif.github.io.git`即可。  </li>
+<li>如果出现报错<code>permission denied (publickey)</code>，或者<code>Please make sure you have the correct access rights
+and the repository exists</code>一般是公钥设置、git配置没有成功，可以参照前面的步骤检查一遍。</li>
+</ol>
+<p>好啦，现在可以在本地运行<code>hexo s</code>启动服务预览页面了，<code>hexo d</code>之后，浏览器打开fishsif.github.io就可以看到推送的页面咯！！具体的hexo操作命令参考<a href="https://hexo.io/zh-cn/docs/index.html" target="_blank" rel="noopener">官方文档</a>，这里就不列举了~</p>
+<p>十分不擅长写作的我竟然又写完了一篇文章。11点有世界杯总决赛，明天要上班了，下周依然希望自己能有个健康的作息~</p>
 
       
 
@@ -233,7 +269,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2018 John Doe
+    		&copy; 2018 fishsif
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
