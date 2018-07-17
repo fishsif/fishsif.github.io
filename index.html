@@ -180,15 +180,15 @@
 </blockquote>
 <p>我们可以在GitHub Pages上搭建个人网站，免费+稳定，用它来搭一个博客再合适不过了。</p>
 <p>在这一步，我们需要注册一个github账号，完成注册后，建立仓库，添加SSH key将本地git项目与远程的github建立联系。</p>
-<h3 id="建立仓库"><a href="#建立仓库" class="headerlink" title="建立仓库"></a>建立仓库</h3><p>在github上新建一个与用户名对应的仓库，比如我的用户名为fishsif，仓库命名就是【fishsif.github.io】。<br><img src="http://pbuw2vh6j.bkt.clouddn.com/%E6%96%B0%E5%BB%BA%E4%BB%93%E5%BA%93.png" width="550"></p>
+<h3 id="建立仓库"><a href="#建立仓库" class="headerlink" title="建立仓库"></a>建立仓库</h3><p>在github上新建一个与用户名对应的仓库，比如我的用户名为fishsif，仓库命名就是【fishsif.github.io】。<br><img src="https://img14.360buyimg.com/uba/jfs/t21787/3/2240696108/496013/1f270f7d/5b4df753N5c0cb8d2.png" width="550"></p>
 <h3 id="添加SSH-key"><a href="#添加SSH-key" class="headerlink" title="添加SSH key"></a>添加SSH key</h3><p>添加SSH key的目的就是在我们以后使用时，不用每次手动输入密码，把本地的公钥拷贝到github里，以后就可以通过公钥进行登陆了。</p>
 <p>首先设置github注册的用户名和邮箱<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git config --global user.name <span class="string">"用户名"</span> </span><br><span class="line">$ git config --global user.email <span class="string">"邮箱@youremail.com"</span></span><br></pre></td></tr></table></figure></p>
 <p>检查电脑上现有的SSH key<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> ~/.ssh</span><br></pre></td></tr></table></figure></p>
 <p>如果不存在直接进行下面的步骤，如果存在，可以备份再删除.ssh文件夹里的所有文件。</p>
 <p>生成新的SSH key<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh-keygen -t rsa -C <span class="string">"邮箱@youremail.com"</span></span><br></pre></td></tr></table></figure></p>
 <p>我是一路回车~<br>SSH key设置成功后，将id_rsa.pub文件的内容输出<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> ~/.ssh</span><br><span class="line">$ cat id_rsa.pub</span><br></pre></td></tr></table></figure></p>
-<p>把cat出来的内容拷贝到github上，先打开Settings，再点进SSH and GPG keys，Title随便起：<br><img src="http://pbuw2vh6j.bkt.clouddn.com/setting" width="250">  </p>
-<p><img src="http://pbuw2vh6j.bkt.clouddn.com/sshkey" width="250"></p>
+<p>把cat出来的内容拷贝到github上，先打开Settings，再点进SSH and GPG keys，Title随便起：<br><img src="" width="250">  </p>
+<p><img src="" width="250"></p>
 <p>然后测试一下，输入下面的命令，看看设置是否成功，<a href="mailto:git@github.com" target="_blank" rel="noopener">git@github.com</a>不要修改<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh -T git@github.com</span><br></pre></td></tr></table></figure></p>
 <p>如果出现 Are you sure you want to continue connecting (yes/no)? 输入yes就好。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ Hi fishsif! You<span class="string">'ve successfully authenticated, but GitHub does not provide shell access.</span></span><br></pre></td></tr></table></figure></p>
 <p>这样，就成功连接github了~</p>
@@ -202,7 +202,7 @@
 <li>使用git clone拷贝仓库至本地（此时只有master分支）；  </li>
 <li>新建本地分支hexo并git push推送至远端，在github上设置hexo为默认分支（因为我们只需要手动管理这个分支上的Hexo网站文件）；  </li>
 <li>在本地fishsif.github.io文件夹下，切换到hexo分支，<strong>先将.git文件备份（重要），再清空文件夹（因为hexo init要求当前文件夹为空）</strong>，通过Git bash依次执行hexo init、npm install 和 npm install hexo-deployer-git –save，然后将.git文件粘贴回来；  </li>
-<li>修改_config.yml中的deploy参数，branch参数应为master；<br><img src="http://pbuw2vh6j.bkt.clouddn.com/deploy%E9%85%8D%E7%BD%AE" width="400">  </li>
+<li>修改_config.yml中的deploy参数，branch参数应为master；<br><img src="" width="400">  </li>
 <li>依次执行git add .、git commit -m “…”、git push origin hexo提交网站相关的文件；<br>执行hexo g、hexo d生成网站并部署到GitHub上。</li>
 </ol>
 <p><strong>hexo d部署过程中遇到的坑：</strong>  </p>
